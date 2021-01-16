@@ -1,0 +1,653 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> music
+Rule 1     music -> action
+Rule 2     music -> music action
+Rule 3     action -> MACRO [ music ]
+Rule 4     action -> RUNMACRO
+Rule 5     action -> NOTE
+Rule 6     action -> up
+Rule 7     action -> dn
+Rule 8     action -> faster
+Rule 9     action -> slower
+Rule 10    action -> PAUSE
+Rule 11    action -> NOTE JOIN NOTE
+Rule 12    action -> NOTE JOIN faster NOTE
+Rule 13    action -> NOTE JOIN slower NOTE
+Rule 14    action -> highchord
+Rule 15    up -> UP
+Rule 16    up -> up val
+Rule 17    dn -> DN
+Rule 18    dn -> dn val
+Rule 19    val -> VAL
+Rule 20    faster -> FASTER
+Rule 21    slower -> SLOWER
+Rule 22    highchord -> HIGHCHORD
+
+Terminals, with rules where they appear
+
+DN                   : 17
+FASTER               : 20
+HIGHCHORD            : 22
+JOIN                 : 11 12 13
+MACRO                : 3
+NOTE                 : 5 11 11 12 12 13 13
+PAUSE                : 10
+RUNMACRO             : 4
+SLOWER               : 21
+UP                   : 15
+VAL                  : 19
+[                    : 3
+]                    : 3
+error                : 
+
+Nonterminals, with rules where they appear
+
+action               : 1 2
+dn                   : 7 18
+faster               : 8 12
+highchord            : 14
+music                : 2 3 0
+slower               : 9 13
+up                   : 6 16
+val                  : 16 18
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . music
+    (1) music -> . action
+    (2) music -> . music action
+    (3) action -> . MACRO [ music ]
+    (4) action -> . RUNMACRO
+    (5) action -> . NOTE
+    (6) action -> . up
+    (7) action -> . dn
+    (8) action -> . faster
+    (9) action -> . slower
+    (10) action -> . PAUSE
+    (11) action -> . NOTE JOIN NOTE
+    (12) action -> . NOTE JOIN faster NOTE
+    (13) action -> . NOTE JOIN slower NOTE
+    (14) action -> . highchord
+    (15) up -> . UP
+    (16) up -> . up val
+    (17) dn -> . DN
+    (18) dn -> . dn val
+    (20) faster -> . FASTER
+    (21) slower -> . SLOWER
+    (22) highchord -> . HIGHCHORD
+
+    MACRO           shift and go to state 3
+    RUNMACRO        shift and go to state 4
+    NOTE            shift and go to state 5
+    PAUSE           shift and go to state 10
+    UP              shift and go to state 12
+    DN              shift and go to state 13
+    FASTER          shift and go to state 14
+    SLOWER          shift and go to state 15
+    HIGHCHORD       shift and go to state 16
+
+    music                          shift and go to state 1
+    action                         shift and go to state 2
+    up                             shift and go to state 6
+    dn                             shift and go to state 7
+    faster                         shift and go to state 8
+    slower                         shift and go to state 9
+    highchord                      shift and go to state 11
+
+state 1
+
+    (0) S' -> music .
+    (2) music -> music . action
+    (3) action -> . MACRO [ music ]
+    (4) action -> . RUNMACRO
+    (5) action -> . NOTE
+    (6) action -> . up
+    (7) action -> . dn
+    (8) action -> . faster
+    (9) action -> . slower
+    (10) action -> . PAUSE
+    (11) action -> . NOTE JOIN NOTE
+    (12) action -> . NOTE JOIN faster NOTE
+    (13) action -> . NOTE JOIN slower NOTE
+    (14) action -> . highchord
+    (15) up -> . UP
+    (16) up -> . up val
+    (17) dn -> . DN
+    (18) dn -> . dn val
+    (20) faster -> . FASTER
+    (21) slower -> . SLOWER
+    (22) highchord -> . HIGHCHORD
+
+    MACRO           shift and go to state 3
+    RUNMACRO        shift and go to state 4
+    NOTE            shift and go to state 5
+    PAUSE           shift and go to state 10
+    UP              shift and go to state 12
+    DN              shift and go to state 13
+    FASTER          shift and go to state 14
+    SLOWER          shift and go to state 15
+    HIGHCHORD       shift and go to state 16
+
+    action                         shift and go to state 17
+    up                             shift and go to state 6
+    dn                             shift and go to state 7
+    faster                         shift and go to state 8
+    slower                         shift and go to state 9
+    highchord                      shift and go to state 11
+
+state 2
+
+    (1) music -> action .
+
+    MACRO           reduce using rule 1 (music -> action .)
+    RUNMACRO        reduce using rule 1 (music -> action .)
+    NOTE            reduce using rule 1 (music -> action .)
+    PAUSE           reduce using rule 1 (music -> action .)
+    UP              reduce using rule 1 (music -> action .)
+    DN              reduce using rule 1 (music -> action .)
+    FASTER          reduce using rule 1 (music -> action .)
+    SLOWER          reduce using rule 1 (music -> action .)
+    HIGHCHORD       reduce using rule 1 (music -> action .)
+    $end            reduce using rule 1 (music -> action .)
+    ]               reduce using rule 1 (music -> action .)
+
+
+state 3
+
+    (3) action -> MACRO . [ music ]
+
+    [               shift and go to state 18
+
+
+state 4
+
+    (4) action -> RUNMACRO .
+
+    MACRO           reduce using rule 4 (action -> RUNMACRO .)
+    RUNMACRO        reduce using rule 4 (action -> RUNMACRO .)
+    NOTE            reduce using rule 4 (action -> RUNMACRO .)
+    PAUSE           reduce using rule 4 (action -> RUNMACRO .)
+    UP              reduce using rule 4 (action -> RUNMACRO .)
+    DN              reduce using rule 4 (action -> RUNMACRO .)
+    FASTER          reduce using rule 4 (action -> RUNMACRO .)
+    SLOWER          reduce using rule 4 (action -> RUNMACRO .)
+    HIGHCHORD       reduce using rule 4 (action -> RUNMACRO .)
+    $end            reduce using rule 4 (action -> RUNMACRO .)
+    ]               reduce using rule 4 (action -> RUNMACRO .)
+
+
+state 5
+
+    (5) action -> NOTE .
+    (11) action -> NOTE . JOIN NOTE
+    (12) action -> NOTE . JOIN faster NOTE
+    (13) action -> NOTE . JOIN slower NOTE
+
+    MACRO           reduce using rule 5 (action -> NOTE .)
+    RUNMACRO        reduce using rule 5 (action -> NOTE .)
+    NOTE            reduce using rule 5 (action -> NOTE .)
+    PAUSE           reduce using rule 5 (action -> NOTE .)
+    UP              reduce using rule 5 (action -> NOTE .)
+    DN              reduce using rule 5 (action -> NOTE .)
+    FASTER          reduce using rule 5 (action -> NOTE .)
+    SLOWER          reduce using rule 5 (action -> NOTE .)
+    HIGHCHORD       reduce using rule 5 (action -> NOTE .)
+    $end            reduce using rule 5 (action -> NOTE .)
+    ]               reduce using rule 5 (action -> NOTE .)
+    JOIN            shift and go to state 19
+
+
+state 6
+
+    (6) action -> up .
+    (16) up -> up . val
+    (19) val -> . VAL
+
+    MACRO           reduce using rule 6 (action -> up .)
+    RUNMACRO        reduce using rule 6 (action -> up .)
+    NOTE            reduce using rule 6 (action -> up .)
+    PAUSE           reduce using rule 6 (action -> up .)
+    UP              reduce using rule 6 (action -> up .)
+    DN              reduce using rule 6 (action -> up .)
+    FASTER          reduce using rule 6 (action -> up .)
+    SLOWER          reduce using rule 6 (action -> up .)
+    HIGHCHORD       reduce using rule 6 (action -> up .)
+    $end            reduce using rule 6 (action -> up .)
+    ]               reduce using rule 6 (action -> up .)
+    VAL             shift and go to state 21
+
+    val                            shift and go to state 20
+
+state 7
+
+    (7) action -> dn .
+    (18) dn -> dn . val
+    (19) val -> . VAL
+
+    MACRO           reduce using rule 7 (action -> dn .)
+    RUNMACRO        reduce using rule 7 (action -> dn .)
+    NOTE            reduce using rule 7 (action -> dn .)
+    PAUSE           reduce using rule 7 (action -> dn .)
+    UP              reduce using rule 7 (action -> dn .)
+    DN              reduce using rule 7 (action -> dn .)
+    FASTER          reduce using rule 7 (action -> dn .)
+    SLOWER          reduce using rule 7 (action -> dn .)
+    HIGHCHORD       reduce using rule 7 (action -> dn .)
+    $end            reduce using rule 7 (action -> dn .)
+    ]               reduce using rule 7 (action -> dn .)
+    VAL             shift and go to state 21
+
+    val                            shift and go to state 22
+
+state 8
+
+    (8) action -> faster .
+
+    MACRO           reduce using rule 8 (action -> faster .)
+    RUNMACRO        reduce using rule 8 (action -> faster .)
+    NOTE            reduce using rule 8 (action -> faster .)
+    PAUSE           reduce using rule 8 (action -> faster .)
+    UP              reduce using rule 8 (action -> faster .)
+    DN              reduce using rule 8 (action -> faster .)
+    FASTER          reduce using rule 8 (action -> faster .)
+    SLOWER          reduce using rule 8 (action -> faster .)
+    HIGHCHORD       reduce using rule 8 (action -> faster .)
+    $end            reduce using rule 8 (action -> faster .)
+    ]               reduce using rule 8 (action -> faster .)
+
+
+state 9
+
+    (9) action -> slower .
+
+    MACRO           reduce using rule 9 (action -> slower .)
+    RUNMACRO        reduce using rule 9 (action -> slower .)
+    NOTE            reduce using rule 9 (action -> slower .)
+    PAUSE           reduce using rule 9 (action -> slower .)
+    UP              reduce using rule 9 (action -> slower .)
+    DN              reduce using rule 9 (action -> slower .)
+    FASTER          reduce using rule 9 (action -> slower .)
+    SLOWER          reduce using rule 9 (action -> slower .)
+    HIGHCHORD       reduce using rule 9 (action -> slower .)
+    $end            reduce using rule 9 (action -> slower .)
+    ]               reduce using rule 9 (action -> slower .)
+
+
+state 10
+
+    (10) action -> PAUSE .
+
+    MACRO           reduce using rule 10 (action -> PAUSE .)
+    RUNMACRO        reduce using rule 10 (action -> PAUSE .)
+    NOTE            reduce using rule 10 (action -> PAUSE .)
+    PAUSE           reduce using rule 10 (action -> PAUSE .)
+    UP              reduce using rule 10 (action -> PAUSE .)
+    DN              reduce using rule 10 (action -> PAUSE .)
+    FASTER          reduce using rule 10 (action -> PAUSE .)
+    SLOWER          reduce using rule 10 (action -> PAUSE .)
+    HIGHCHORD       reduce using rule 10 (action -> PAUSE .)
+    $end            reduce using rule 10 (action -> PAUSE .)
+    ]               reduce using rule 10 (action -> PAUSE .)
+
+
+state 11
+
+    (14) action -> highchord .
+
+    MACRO           reduce using rule 14 (action -> highchord .)
+    RUNMACRO        reduce using rule 14 (action -> highchord .)
+    NOTE            reduce using rule 14 (action -> highchord .)
+    PAUSE           reduce using rule 14 (action -> highchord .)
+    UP              reduce using rule 14 (action -> highchord .)
+    DN              reduce using rule 14 (action -> highchord .)
+    FASTER          reduce using rule 14 (action -> highchord .)
+    SLOWER          reduce using rule 14 (action -> highchord .)
+    HIGHCHORD       reduce using rule 14 (action -> highchord .)
+    $end            reduce using rule 14 (action -> highchord .)
+    ]               reduce using rule 14 (action -> highchord .)
+
+
+state 12
+
+    (15) up -> UP .
+
+    VAL             reduce using rule 15 (up -> UP .)
+    MACRO           reduce using rule 15 (up -> UP .)
+    RUNMACRO        reduce using rule 15 (up -> UP .)
+    NOTE            reduce using rule 15 (up -> UP .)
+    PAUSE           reduce using rule 15 (up -> UP .)
+    UP              reduce using rule 15 (up -> UP .)
+    DN              reduce using rule 15 (up -> UP .)
+    FASTER          reduce using rule 15 (up -> UP .)
+    SLOWER          reduce using rule 15 (up -> UP .)
+    HIGHCHORD       reduce using rule 15 (up -> UP .)
+    $end            reduce using rule 15 (up -> UP .)
+    ]               reduce using rule 15 (up -> UP .)
+
+
+state 13
+
+    (17) dn -> DN .
+
+    VAL             reduce using rule 17 (dn -> DN .)
+    MACRO           reduce using rule 17 (dn -> DN .)
+    RUNMACRO        reduce using rule 17 (dn -> DN .)
+    NOTE            reduce using rule 17 (dn -> DN .)
+    PAUSE           reduce using rule 17 (dn -> DN .)
+    UP              reduce using rule 17 (dn -> DN .)
+    DN              reduce using rule 17 (dn -> DN .)
+    FASTER          reduce using rule 17 (dn -> DN .)
+    SLOWER          reduce using rule 17 (dn -> DN .)
+    HIGHCHORD       reduce using rule 17 (dn -> DN .)
+    $end            reduce using rule 17 (dn -> DN .)
+    ]               reduce using rule 17 (dn -> DN .)
+
+
+state 14
+
+    (20) faster -> FASTER .
+
+    MACRO           reduce using rule 20 (faster -> FASTER .)
+    RUNMACRO        reduce using rule 20 (faster -> FASTER .)
+    NOTE            reduce using rule 20 (faster -> FASTER .)
+    PAUSE           reduce using rule 20 (faster -> FASTER .)
+    UP              reduce using rule 20 (faster -> FASTER .)
+    DN              reduce using rule 20 (faster -> FASTER .)
+    FASTER          reduce using rule 20 (faster -> FASTER .)
+    SLOWER          reduce using rule 20 (faster -> FASTER .)
+    HIGHCHORD       reduce using rule 20 (faster -> FASTER .)
+    $end            reduce using rule 20 (faster -> FASTER .)
+    ]               reduce using rule 20 (faster -> FASTER .)
+
+
+state 15
+
+    (21) slower -> SLOWER .
+
+    MACRO           reduce using rule 21 (slower -> SLOWER .)
+    RUNMACRO        reduce using rule 21 (slower -> SLOWER .)
+    NOTE            reduce using rule 21 (slower -> SLOWER .)
+    PAUSE           reduce using rule 21 (slower -> SLOWER .)
+    UP              reduce using rule 21 (slower -> SLOWER .)
+    DN              reduce using rule 21 (slower -> SLOWER .)
+    FASTER          reduce using rule 21 (slower -> SLOWER .)
+    SLOWER          reduce using rule 21 (slower -> SLOWER .)
+    HIGHCHORD       reduce using rule 21 (slower -> SLOWER .)
+    $end            reduce using rule 21 (slower -> SLOWER .)
+    ]               reduce using rule 21 (slower -> SLOWER .)
+
+
+state 16
+
+    (22) highchord -> HIGHCHORD .
+
+    MACRO           reduce using rule 22 (highchord -> HIGHCHORD .)
+    RUNMACRO        reduce using rule 22 (highchord -> HIGHCHORD .)
+    NOTE            reduce using rule 22 (highchord -> HIGHCHORD .)
+    PAUSE           reduce using rule 22 (highchord -> HIGHCHORD .)
+    UP              reduce using rule 22 (highchord -> HIGHCHORD .)
+    DN              reduce using rule 22 (highchord -> HIGHCHORD .)
+    FASTER          reduce using rule 22 (highchord -> HIGHCHORD .)
+    SLOWER          reduce using rule 22 (highchord -> HIGHCHORD .)
+    HIGHCHORD       reduce using rule 22 (highchord -> HIGHCHORD .)
+    $end            reduce using rule 22 (highchord -> HIGHCHORD .)
+    ]               reduce using rule 22 (highchord -> HIGHCHORD .)
+
+
+state 17
+
+    (2) music -> music action .
+
+    MACRO           reduce using rule 2 (music -> music action .)
+    RUNMACRO        reduce using rule 2 (music -> music action .)
+    NOTE            reduce using rule 2 (music -> music action .)
+    PAUSE           reduce using rule 2 (music -> music action .)
+    UP              reduce using rule 2 (music -> music action .)
+    DN              reduce using rule 2 (music -> music action .)
+    FASTER          reduce using rule 2 (music -> music action .)
+    SLOWER          reduce using rule 2 (music -> music action .)
+    HIGHCHORD       reduce using rule 2 (music -> music action .)
+    $end            reduce using rule 2 (music -> music action .)
+    ]               reduce using rule 2 (music -> music action .)
+
+
+state 18
+
+    (3) action -> MACRO [ . music ]
+    (1) music -> . action
+    (2) music -> . music action
+    (3) action -> . MACRO [ music ]
+    (4) action -> . RUNMACRO
+    (5) action -> . NOTE
+    (6) action -> . up
+    (7) action -> . dn
+    (8) action -> . faster
+    (9) action -> . slower
+    (10) action -> . PAUSE
+    (11) action -> . NOTE JOIN NOTE
+    (12) action -> . NOTE JOIN faster NOTE
+    (13) action -> . NOTE JOIN slower NOTE
+    (14) action -> . highchord
+    (15) up -> . UP
+    (16) up -> . up val
+    (17) dn -> . DN
+    (18) dn -> . dn val
+    (20) faster -> . FASTER
+    (21) slower -> . SLOWER
+    (22) highchord -> . HIGHCHORD
+
+    MACRO           shift and go to state 3
+    RUNMACRO        shift and go to state 4
+    NOTE            shift and go to state 5
+    PAUSE           shift and go to state 10
+    UP              shift and go to state 12
+    DN              shift and go to state 13
+    FASTER          shift and go to state 14
+    SLOWER          shift and go to state 15
+    HIGHCHORD       shift and go to state 16
+
+    music                          shift and go to state 23
+    action                         shift and go to state 2
+    up                             shift and go to state 6
+    dn                             shift and go to state 7
+    faster                         shift and go to state 8
+    slower                         shift and go to state 9
+    highchord                      shift and go to state 11
+
+state 19
+
+    (11) action -> NOTE JOIN . NOTE
+    (12) action -> NOTE JOIN . faster NOTE
+    (13) action -> NOTE JOIN . slower NOTE
+    (20) faster -> . FASTER
+    (21) slower -> . SLOWER
+
+    NOTE            shift and go to state 24
+    FASTER          shift and go to state 14
+    SLOWER          shift and go to state 15
+
+    faster                         shift and go to state 25
+    slower                         shift and go to state 26
+
+state 20
+
+    (16) up -> up val .
+
+    VAL             reduce using rule 16 (up -> up val .)
+    MACRO           reduce using rule 16 (up -> up val .)
+    RUNMACRO        reduce using rule 16 (up -> up val .)
+    NOTE            reduce using rule 16 (up -> up val .)
+    PAUSE           reduce using rule 16 (up -> up val .)
+    UP              reduce using rule 16 (up -> up val .)
+    DN              reduce using rule 16 (up -> up val .)
+    FASTER          reduce using rule 16 (up -> up val .)
+    SLOWER          reduce using rule 16 (up -> up val .)
+    HIGHCHORD       reduce using rule 16 (up -> up val .)
+    $end            reduce using rule 16 (up -> up val .)
+    ]               reduce using rule 16 (up -> up val .)
+
+
+state 21
+
+    (19) val -> VAL .
+
+    VAL             reduce using rule 19 (val -> VAL .)
+    MACRO           reduce using rule 19 (val -> VAL .)
+    RUNMACRO        reduce using rule 19 (val -> VAL .)
+    NOTE            reduce using rule 19 (val -> VAL .)
+    PAUSE           reduce using rule 19 (val -> VAL .)
+    UP              reduce using rule 19 (val -> VAL .)
+    DN              reduce using rule 19 (val -> VAL .)
+    FASTER          reduce using rule 19 (val -> VAL .)
+    SLOWER          reduce using rule 19 (val -> VAL .)
+    HIGHCHORD       reduce using rule 19 (val -> VAL .)
+    $end            reduce using rule 19 (val -> VAL .)
+    ]               reduce using rule 19 (val -> VAL .)
+
+
+state 22
+
+    (18) dn -> dn val .
+
+    VAL             reduce using rule 18 (dn -> dn val .)
+    MACRO           reduce using rule 18 (dn -> dn val .)
+    RUNMACRO        reduce using rule 18 (dn -> dn val .)
+    NOTE            reduce using rule 18 (dn -> dn val .)
+    PAUSE           reduce using rule 18 (dn -> dn val .)
+    UP              reduce using rule 18 (dn -> dn val .)
+    DN              reduce using rule 18 (dn -> dn val .)
+    FASTER          reduce using rule 18 (dn -> dn val .)
+    SLOWER          reduce using rule 18 (dn -> dn val .)
+    HIGHCHORD       reduce using rule 18 (dn -> dn val .)
+    $end            reduce using rule 18 (dn -> dn val .)
+    ]               reduce using rule 18 (dn -> dn val .)
+
+
+state 23
+
+    (3) action -> MACRO [ music . ]
+    (2) music -> music . action
+    (3) action -> . MACRO [ music ]
+    (4) action -> . RUNMACRO
+    (5) action -> . NOTE
+    (6) action -> . up
+    (7) action -> . dn
+    (8) action -> . faster
+    (9) action -> . slower
+    (10) action -> . PAUSE
+    (11) action -> . NOTE JOIN NOTE
+    (12) action -> . NOTE JOIN faster NOTE
+    (13) action -> . NOTE JOIN slower NOTE
+    (14) action -> . highchord
+    (15) up -> . UP
+    (16) up -> . up val
+    (17) dn -> . DN
+    (18) dn -> . dn val
+    (20) faster -> . FASTER
+    (21) slower -> . SLOWER
+    (22) highchord -> . HIGHCHORD
+
+    ]               shift and go to state 27
+    MACRO           shift and go to state 3
+    RUNMACRO        shift and go to state 4
+    NOTE            shift and go to state 5
+    PAUSE           shift and go to state 10
+    UP              shift and go to state 12
+    DN              shift and go to state 13
+    FASTER          shift and go to state 14
+    SLOWER          shift and go to state 15
+    HIGHCHORD       shift and go to state 16
+
+    action                         shift and go to state 17
+    up                             shift and go to state 6
+    dn                             shift and go to state 7
+    faster                         shift and go to state 8
+    slower                         shift and go to state 9
+    highchord                      shift and go to state 11
+
+state 24
+
+    (11) action -> NOTE JOIN NOTE .
+
+    MACRO           reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    RUNMACRO        reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    NOTE            reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    PAUSE           reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    UP              reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    DN              reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    FASTER          reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    SLOWER          reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    HIGHCHORD       reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    $end            reduce using rule 11 (action -> NOTE JOIN NOTE .)
+    ]               reduce using rule 11 (action -> NOTE JOIN NOTE .)
+
+
+state 25
+
+    (12) action -> NOTE JOIN faster . NOTE
+
+    NOTE            shift and go to state 28
+
+
+state 26
+
+    (13) action -> NOTE JOIN slower . NOTE
+
+    NOTE            shift and go to state 29
+
+
+state 27
+
+    (3) action -> MACRO [ music ] .
+
+    MACRO           reduce using rule 3 (action -> MACRO [ music ] .)
+    RUNMACRO        reduce using rule 3 (action -> MACRO [ music ] .)
+    NOTE            reduce using rule 3 (action -> MACRO [ music ] .)
+    PAUSE           reduce using rule 3 (action -> MACRO [ music ] .)
+    UP              reduce using rule 3 (action -> MACRO [ music ] .)
+    DN              reduce using rule 3 (action -> MACRO [ music ] .)
+    FASTER          reduce using rule 3 (action -> MACRO [ music ] .)
+    SLOWER          reduce using rule 3 (action -> MACRO [ music ] .)
+    HIGHCHORD       reduce using rule 3 (action -> MACRO [ music ] .)
+    $end            reduce using rule 3 (action -> MACRO [ music ] .)
+    ]               reduce using rule 3 (action -> MACRO [ music ] .)
+
+
+state 28
+
+    (12) action -> NOTE JOIN faster NOTE .
+
+    MACRO           reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    RUNMACRO        reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    NOTE            reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    PAUSE           reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    UP              reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    DN              reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    FASTER          reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    SLOWER          reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    HIGHCHORD       reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    $end            reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+    ]               reduce using rule 12 (action -> NOTE JOIN faster NOTE .)
+
+
+state 29
+
+    (13) action -> NOTE JOIN slower NOTE .
+
+    MACRO           reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    RUNMACRO        reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    NOTE            reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    PAUSE           reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    UP              reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    DN              reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    FASTER          reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    SLOWER          reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    HIGHCHORD       reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    $end            reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+    ]               reduce using rule 13 (action -> NOTE JOIN slower NOTE .)
+

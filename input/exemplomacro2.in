@@ -1,0 +1,6 @@
+# Macro teste com letras
+
+PROCLINGUAS=[cdefgab]
+
+> \PROCLINGUAS ^{2} \PROCLINGUAS ^{2} \PROCLINGUAS :
+
