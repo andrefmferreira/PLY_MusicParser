@@ -18,28 +18,24 @@ class Parser:
         self.cDur = 16  # start values for duration
         self.notes = []
         self.commands = []
-        self.melody = []
         self.macros = {}
-
-    def eval_note(self, note):
-        self.cNote = note
 
     def Parse(self, input, file, **kwargs):
         self.lexer = Lexer()
         self.lexer.Build(input, **kwargs)
         self.parser = yacc.yacc(module=self, **kwargs)
         self.commands = self.parser.parse(lexer=self.lexer.lexer)
-        print(f"Comandos: {self.commands}\n")
+        # print(f"Comandos: {self.commands}\n")
         Composer.compose(self.commands, self)
 
         if make_midi(self.notes, file):
             print(
-                f"{bcolors.OKGREEN}File {bcolors.OKCYAN}{file}{bcolors.OKGREEN}.midi generated successfully{bcolors.RESET}")
+                f"{bcolors.OKGREEN}File {bcolors.OKCYAN}{file}.midi{bcolors.OKGREEN} generated successfully{bcolors.RESET}")
             print(f"{bcolors.WARNING}****************************************{bcolors.RESET}")
 
         else:
-            print(f"{bcolors.FAIL}File {bcolors.OKCYAN}{file}{bcolors.FAIL}.midi not generated{bcolors.RESET}")
-            print(f"{bcolors.WARNING}****************************************{bcolors.RESET}")
+            print(f"{bcolors.FAIL}File {bcolors.OKCYAN}{file}.midi{bcolors.FAIL} not generated{bcolors.RESET}", file=sys.stderr)
+            print(f"{bcolors.WARNING}****************************************{bcolors.RESET}", file=sys.stderr)
 
     # error for yacc
     def p_error(self, p):

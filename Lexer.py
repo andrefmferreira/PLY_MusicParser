@@ -3,29 +3,31 @@
 import ply.lex as lex
 import sys
 
+
+# Lexical interpreter. Identifies the symbols in the input, and assists parser.
 class Lexer:
     # Documentation table
-    # . --> note
-    # ^ --> uo freq half
-    # _ --> dn freq half
-    # ^{12} up freq 12 half
-    # > dn note velocity
-    # < up note velocity
-    # * pause
-    # ~ join notes
-    # : raises accord 3x up
-    #  do re mi fa sol la si
-    #   .^^.^^.^.^^.^^.^^.^^.
-    #   c  d  e f  g  a  b
-    # si la sol fa mi re do
-    #  .__.__.__._.__.__.
-    #  # ignore line
+    # # . --> note
+    # # ^ --> uo freq half
+    # # _ --> dn freq half
+    # # ^{12} up freq 12 half
+    # # > dn note velocity
+    # # < up note velocity
+    # # * pause
+    # # ~ join notes
+    # # : raises accord 3x up
+    # #  do re mi fa sol la si
+    # #   .^^.^^.^.^^.^^.^^.^^.
+    # #   c  d  e f  g  a  b
+    # # si la sol fa mi re do
+    # #  .__.__.__._.__.__.
+    # #  # ignore line
 
     t_ignore = " \n"
     literals = "=[]\\"
     tokens = ("NOTE", "UP", "DN", "VAL", "FASTER", "SLOWER", "PAUSE", "JOIN", "HIGHCHORD", "RUNMACRO", "MACRO")
 
-    # note is defined by dot '.'
+    # note is defined by dot '.' or letters (a - g)
     def t_NOTE(self, t):
         r"""\.|[a-g]"""
         return t
@@ -76,29 +78,22 @@ class Lexer:
         r"""\#.*[\n]|[\n]|[ ]"""
         pass
 
+    # defines the call of a macro
     def t_RUNMACRO(self, t):
         r"""\\[A-Z]+"""
         return t
 
-
+    # defines a macro set
     def t_MACRO(self, t):
         r"""[A-Z]+="""
         return t
-
-
-    # def t_MACRONOTES(self, t):
-    #     r"""\[[\.a-g^_~*:]+\]"""
-    #     return t
-
-
 
     # defines error for lexer
     def t_error(self, t):
         print(f"Parser error. Unexpected char: {t.value[0]}", file=sys.stderr)
         exit(1)
 
-
-    # inits Lexer object
+    # inits Lexer object (constructor)
     def __init__(self):
         self.lexer = None
 

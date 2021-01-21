@@ -1,3 +1,7 @@
+# Partiture.py
+
+
+# this outputs the  parsed notes, to a midi file, saving it with same name as the input file, with midi extension.
 from mxm.midifile import MidiOutFile
 
 
@@ -7,13 +11,7 @@ def make_midi(melody, file):
     midi.header(format=0, nTracks=1, division=32)
     midi.start_of_track()
 
-
-    # melody = [(60, midi_quaver), (60, midi_quaver), (62, midi_crotchet), (60, midi_crotchet),
-    # (65, midi_crotchet), (64, midi_minim), (60, midi_quaver), (60, midi_quaver),
-    # (62, midi_crotchet), (60, midi_crotchet), (67, midi_crotchet), (65, midi_minim)]
-
-
-    print(f"Notas: {melody}")
+    # print(f"Midi_notes: {melody}")
 
     try:
         for note, duration in melody:

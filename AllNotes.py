@@ -1,5 +1,6 @@
 # AllNotes.py
 
+# this stores a list containing all notes, in a "letter" format, from al scales.
 
 letterNotes = [
     (0, 'a', 21),
