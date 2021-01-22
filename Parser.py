@@ -31,11 +31,11 @@ class Parser:
         if make_midi(self.notes, file):
             print(
                 f"{bcolors.OKGREEN}File {bcolors.OKCYAN}{file}.midi{bcolors.OKGREEN} generated successfully{bcolors.RESET}")
-            print(f"{bcolors.WARNING}****************************************{bcolors.RESET}")
+            print(f"{bcolors.WARNING}*************************************************{bcolors.RESET}\n")
 
         else:
             print(f"{bcolors.FAIL}File {bcolors.OKCYAN}{file}.midi{bcolors.FAIL} not generated{bcolors.RESET}", file=sys.stderr)
-            print(f"{bcolors.WARNING}****************************************{bcolors.RESET}", file=sys.stderr)
+            print(f"{bcolors.WARNING}*************************************************{bcolors.RESET}\n", file=sys.stderr)
 
     # error for yacc
     def p_error(self, p):
