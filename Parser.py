@@ -102,7 +102,7 @@ class Parser:
         """ action : NOTE JOIN NOTE
                    | NOTE JOIN faster NOTE
                    | NOTE JOIN slower NOTE """
-        if len(p) == 4:
+        if len(p) == 5:
             if '<' in p[3]:
                 args = {'val': len(p[3]),
                         'note': p[1]}
