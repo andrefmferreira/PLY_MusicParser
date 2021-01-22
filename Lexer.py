@@ -75,7 +75,7 @@ class Lexer:
 
     # ignores comments
     def t_IGNORE(self, t):
-        r"""\#.*[\n]|[\n]|[ ]"""
+        r"""\#.*[\n]|[\n]|[ ]+"""
         pass
 
     # defines the call of a macro

@@ -1,6 +1,7 @@
 # Composer.py
 
 from AllNotes import letterNotes
+import sys
 
 
 # breve > minima > semi-minima < colcheia < semi-colcheia
@@ -97,7 +98,7 @@ def do_run_macro(action, parser):
     macro_name = action.args['name']
 
     if macro_name not in parser.macros:
-        print(f"Unknown macro '{macro_name}'")
+        print(f"Unknown macro '{macro_name}'", file=sys.stderr)
         exit(1)
     # saves the note and duration before the macro to restore them after it runs
     saveNote = parser.cNote
@@ -109,7 +110,7 @@ def do_run_macro(action, parser):
 
 class Composer:
     dispatch_table = {
-        'note': do_note,
+        "note": do_note,
         "pause": do_pause,
         "slower": do_slower,
         "faster": do_faster,
